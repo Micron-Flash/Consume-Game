@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/TomWinandySFX_UI_ScifiTech_Swipe 1.wav-c7468d06d4f6bbbb0dbc0d83a3879154.sample"
+
+[deps]
+
+source_file="res://Sounds/TomWinandySFX_UI_ScifiTech_Swipe 1.wav"
+dest_files=[ "res://.import/TomWinandySFX_UI_ScifiTech_Swipe 1.wav-c7468d06d4f6bbbb0dbc0d83a3879154.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

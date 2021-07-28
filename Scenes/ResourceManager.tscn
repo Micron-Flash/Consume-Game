@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/ResourceManager.gd" type="Script" id=1]
+
+[node name="ResourceManager" type="Node"]
+script = ExtResource( 1 )
+resourses = {
+"Metal_ore": {
+"total": 0
+},
+"Water": {
+}
+}

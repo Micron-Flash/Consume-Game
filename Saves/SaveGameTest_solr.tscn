@@ -1,0 +1,404 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Animations/Earth.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Camera2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Planet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/UI.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/GenerateSolarSystem.gd" type="Script" id=7]
+[ext_resource path="res://Animations/Sun.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://Animations/Gassy.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://Scripts/Planet.gd" type="Script" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 48.712
+
+[node name="GenerateSolarSystem" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( -5518.85, -3843.71 )
+rotating = true
+current = true
+zoom = Vector2( 5.49519, 5.49519 )
+process_mode = 0
+limit_left = -5920
+limit_top = -4080
+limit_right = 6120
+limit_bottom = 4080
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.3
+drag_margin_top = 0.3
+drag_margin_right = 0.3
+drag_margin_bottom = 0.3
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource( 2 )
+min_zoom = 0.5
+zoom_factor = Vector2( 0.5, 0.5 )
+
+[node name="UI" type="CanvasLayer" parent="." instance=ExtResource( 6 )]
+script = ExtResource( 5 )
+
+[node name="Planet" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+script = ExtResource( 10 )
+PlanetType = "Sun"
+
+[node name="Earth" type="AnimatedSprite" parent="Planet" groups=[
+"Planet",
+]]
+frames = ExtResource( 8 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Planet/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 2184.92 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5894" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+scale = Vector2( 0.4, 0.4 )
+script = ExtResource( 10 )
+PlanetType = "Earth"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5894" groups=[
+"Planet",
+]]
+position = Vector2( -2558, 965 )
+frames = ExtResource( 1 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5894/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 5462.29 )
+scale = Vector2( 2.5, 2.5 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5894/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5895" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 10 )
+PlanetType = "Earth"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5895" groups=[
+"Planet",
+]]
+position = Vector2( 2356, 1029 )
+frames = ExtResource( 1 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5895/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 10924.6 )
+scale = Vector2( 5, 5 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5895/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5896" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+scale = Vector2( 0.4, 0.4 )
+script = ExtResource( 10 )
+PlanetType = "Earth"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5896" groups=[
+"Planet",
+]]
+position = Vector2( 2822, 2649 )
+frames = ExtResource( 1 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5896/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 5462.29 )
+scale = Vector2( 2.5, 2.5 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5896/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5897" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+scale = Vector2( 0.9, 0.9 )
+script = ExtResource( 10 )
+PlanetType = "Gassy"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5897" groups=[
+"Planet",
+]]
+position = Vector2( 1570, -1637 )
+frames = ExtResource( 9 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5897/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 2427.69 )
+scale = Vector2( 1.11111, 1.11111 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5897/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5898" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+script = ExtResource( 10 )
+PlanetType = "Gassy"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5898" groups=[
+"Planet",
+]]
+position = Vector2( -1934, -919 )
+frames = ExtResource( 9 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5898/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 2184.92 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5898/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5899" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 10 )
+PlanetType = "Earth"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5899" groups=[
+"Planet",
+]]
+position = Vector2( -3945, 3837 )
+frames = ExtResource( 1 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5899/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 10924.6 )
+scale = Vector2( 5, 5 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5899/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5900" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 10 )
+PlanetType = "Earth"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5900" groups=[
+"Planet",
+]]
+position = Vector2( 795, -3525 )
+frames = ExtResource( 1 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5900/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 10924.6 )
+scale = Vector2( 5, 5 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5900/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5901" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 10 )
+PlanetType = "Gassy"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5901" groups=[
+"Planet",
+]]
+position = Vector2( 1654, -1469 )
+frames = ExtResource( 9 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5901/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 4369.84 )
+scale = Vector2( 2, 2 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5901/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5902" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 10 )
+PlanetType = "Earth"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5902" groups=[
+"Planet",
+]]
+position = Vector2( -2423, 1277 )
+frames = ExtResource( 1 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5902/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 4369.84 )
+scale = Vector2( 2, 2 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5902/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5903" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 10 )
+PlanetType = "Earth"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5903" groups=[
+"Planet",
+]]
+position = Vector2( -2400, -3350 )
+frames = ExtResource( 1 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5903/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 10924.6 )
+scale = Vector2( 5, 5 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5903/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5904" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 10 )
+PlanetType = "Gassy"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5904" groups=[
+"Planet",
+]]
+position = Vector2( -6636, -1880 )
+frames = ExtResource( 9 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5904/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 3121.31 )
+scale = Vector2( 1.42857, 1.42857 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5904/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )
+
+[node name="@Planet@5905" type="Node2D" parent="." groups=[
+"Planet",
+] instance=ExtResource( 4 )]
+scale = Vector2( 0.4, 0.4 )
+script = ExtResource( 10 )
+PlanetType = "Earth"
+
+[node name="Earth" type="AnimatedSprite" parent="@Planet@5905" groups=[
+"Planet",
+]]
+position = Vector2( -127, -2013 )
+frames = ExtResource( 1 )
+frame = 229
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="@Planet@5905/Earth" groups=[
+"Planet",
+]]
+position = Vector2( 0, 5462.29 )
+scale = Vector2( 2.5, 2.5 )
+linear_velocity = Vector2( 0, 517.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Planet@5905/Earth/RigidBody2D" groups=[
+"Planet",
+]]
+visible = false
+shape = SubResource( 1 )

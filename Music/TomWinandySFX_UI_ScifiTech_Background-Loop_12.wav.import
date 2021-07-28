@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/TomWinandySFX_UI_ScifiTech_Background-Loop_12.wav-d37ba46cac9989faf53a1033be443eac.sample"
+
+[deps]
+
+source_file="res://Music/TomWinandySFX_UI_ScifiTech_Background-Loop_12.wav"
+dest_files=[ "res://.import/TomWinandySFX_UI_ScifiTech_Background-Loop_12.wav-d37ba46cac9989faf53a1033be443eac.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

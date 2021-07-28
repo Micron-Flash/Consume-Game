@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Animations/Sun.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Scripts/PanelContainer.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/SolarSystem.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Button.gd" type="Script" id=6]
+[ext_resource path="res://Images/ava_02_02.png" type="Texture" id=7]
+[ext_resource path="res://Images/ava_02_03.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=3]
+size = 260
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 78.5783, 68.2203 )
+
+[node name="Solary System" type="Node2D" groups=[
+"solr",
+]]
+position = Vector2( -1, 0 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="." groups=[
+"solr",
+]]
+visible = false
+modulate = Color( 100, 100, 100, 1 )
+texture = ExtResource( 5 )
+
+[node name="PanelContainer" type="MarginContainer" parent="." groups=[
+"solr",
+]]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -206.0
+margin_top = -437.0
+margin_right = 210.0
+margin_bottom = -72.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+margin_right = 416.0
+margin_bottom = 365.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Label" type="Label" parent="PanelContainer" groups=[
+"solr",
+]]
+margin_top = 26.0
+margin_right = 416.0
+margin_bottom = 339.0
+custom_fonts/font = SubResource( 3 )
+text = "12"
+align = 1
+valign = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer"]
+margin_right = 416.0
+margin_bottom = 365.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
+"solr",
+]]
+self_modulate = Color( 100, 100, 100, 0.7 )
+frames = ExtResource( 1 )
+frame = 491
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+"solr",
+]]
+scale = Vector2( 0.75, 0.75 )
+input_pickable = true
+script = ExtResource( 6 )
+
+[node name="Button" type="Button" parent="StaticBody2D" groups=[
+"solr",
+]]
+visible = false
+modulate = Color( 1, 1, 1, 0.0235294 )
+margin_left = -36.0
+margin_top = -34.0
+margin_right = 39.0
+margin_bottom = 45.0
+disabled = true
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=[
+"solr",
+]]
+position = Vector2( 0, -0.24972 )
+shape = SubResource( 2 )
+
+[connection signal="input_event" from="StaticBody2D" to="." method="_on_StaticBody2D_input_event"]
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_StaticBody2D_mouse_entered"]
+[connection signal="mouse_entered" from="StaticBody2D" to="PanelContainer" method="_on_StaticBody2D_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="PanelContainer" method="_on_StaticBody2D_mouse_exited"]
+[connection signal="focus_entered" from="StaticBody2D/Button" to="PanelContainer" method="_on_Button_focus_entered"]
+[connection signal="focus_exited" from="StaticBody2D/Button" to="PanelContainer" method="_on_Button_focus_exited"]
+[connection signal="pressed" from="StaticBody2D/Button" to="." method="_on_Button_pressed"]

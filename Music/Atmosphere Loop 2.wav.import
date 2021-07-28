@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Atmosphere Loop 2.wav-3bc8bc33690e0a5d9d129c46049705a2.sample"
+
+[deps]
+
+source_file="res://Music/Atmosphere Loop 2.wav"
+dest_files=[ "res://.import/Atmosphere Loop 2.wav-3bc8bc33690e0a5d9d129c46049705a2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=1]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2( 101250, 101250 )
+rotating = true
+current = true
+zoom = Vector2( 10, 10 )
+process_mode = 0
+limit_left = -2500
+limit_top = -2500
+limit_right = 202500
+limit_bottom = 202500
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.3
+drag_margin_top = 0.3
+drag_margin_right = 0.3
+drag_margin_bottom = 0.3
+editor_draw_drag_margin = true
+script = ExtResource( 1 )
+min_zoom = 0.1
+max_zoom = 20.0
+zoom_factor = Vector2( 1, 1 )
+
+[node name="Tween" type="Tween" parent="."]

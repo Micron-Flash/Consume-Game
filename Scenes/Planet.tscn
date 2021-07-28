@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Animations/Earth.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Scripts/Planet.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 48.712
+
+[node name="Planet" type="Node2D" groups=[
+"Planet",
+]]
+script = ExtResource( 2 )
+
+[node name="Earth" type="AnimatedSprite" parent="." groups=[
+"Planet",
+]]
+frames = ExtResource( 1 )
+frame = 275
+playing = true
+
+[node name="RigidBody2D" type="StaticBody2D" parent="Earth" groups=[
+"Planet",
+]]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earth/RigidBody2D" groups=[
+"Planet",
+]]
+shape = SubResource( 1 )
+
+[connection signal="input_event" from="Earth/RigidBody2D" to="." method="_on_RigidBody2D_input_event"]
+[connection signal="mouse_entered" from="Earth/RigidBody2D" to="." method="_on_RigidBody2D_mouse_entered"]
+[connection signal="mouse_exited" from="Earth/RigidBody2D" to="." method="_on_RigidBody2D_mouse_exited"]
